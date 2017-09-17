@@ -24,7 +24,7 @@ MyCircle.prototype.constructor = MyCircle;
 MyCircle.prototype.makeLinks = function(objects, links) {
   var p = new Phaser.Point(this.body.x, this.body.y);
   var created=0;
-  for (var n=0; n<objects.length && created<5; n++) {
+  for (var n=0; n<objects.length && created<4; n++) {
     var dist = p.distance( objects[n].body );
     if ((dist < 140) && ( !doesLinkExist(links, this, objects[n]) )) {
       links.push( new MyLink(this, objects[n], 
@@ -187,25 +187,25 @@ var playState = {
 
     /* Outer Circles */
     for (var n=22, a=1; n<=30; n++,a++) {
-      var p = newVector( game.rnd.between(210, 240), 360*(11/a) );
+      var p = newVector( game.rnd.between(210, 240), 360/9*a );
       this.circles[n] = new MyCircle(game, 400+p.x,300+p.y,
-                        game.rnd.between(30,100)/*size*/, 0xc1c82d/*yellow*/);
+                        game.rnd.between(20,90)/*size*/,0x00a7a7); // 0xc1c82d/*yellow*/);
       //this.links.push(new MyLink());
     }
 
     /* 2nd layer Circles */
     for (var n=9, a=1; n<=21; n++,a++) {
-      var p = newVector( game.rnd.between(160, 190), 360*(11/a) );
+      var p = newVector( game.rnd.between(160, 190), 360/13*a );
       this.circles[n] = new MyCircle(game, 400+p.x,300+p.y,
-                        game.rnd.between(30,120)/*size*/, 0x44a548/*green*/);
+                        game.rnd.between(30,120)/*size*/,0x0462ac); // 0x44a548/*green*/);
       //this.links.push(new MyLink());
     }
 
     /* Inner Circles */
     for (var n=1, a=1; n<=8; n++, a++) {
-      var p = newVector( game.rnd.between(90, 130), 360*(9/a) );
+      var p = newVector( game.rnd.between(90, 130), 360/8*a );
       this.circles[n] = new MyCircle(game, 400+p.x, 300+p.y,
-                        game.rnd.between(50,130)/*size*/, 0x386f48/*dark green*/);
+                        game.rnd.between(50,130)/*size*/, 0x471c72); //0x386f48/*dark green*/);
       //this.links.push(new MyLink());
     }
 
