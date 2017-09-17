@@ -1,6 +1,6 @@
 
 
-MyCircle = function(game, x,y, size, colour) {
+MyCircle = function(game, x,y, size, colour, alpha) {
   /* Fake Sprite, so we have a physics body */
   Phaser.Sprite.call(this, game, x, y, 'fake');
   game.physics.enable(this, Phaser.Physics.ARCADE);
@@ -10,6 +10,7 @@ MyCircle = function(game, x,y, size, colour) {
   this.size=size;
   this.lastSize=size;
   this.colour = colour; //0xff0000/*red*/ ;
+  this.alpha = (alpha ? alpha : 0.85);
   this.graphic = game.add.graphics(0,0);
   this.redrawGraphic( this.size, this.colour);
 
@@ -23,11 +24,12 @@ MyCircle.prototype.constructor = MyCircle;
 MyCircle.prototype.makeLinks = function(objects, links) {
   var p = new Phaser.Point(this.body.x, this.body.y);
   var created=0;
-  for (var n=0; n<objects.length && created<3; n++) {
+  for (var n=0; n<objects.length && created<5; n++) {
     var dist = p.distance( objects[n].body );
-    if ((dist < 150) && ( !doesLinkExist(links, this, objects[n]) )) {
-      links.push(new MyLink(this, objects[n], 
-           this.size + objects[n].size)); //dist*1.5));
+    if ((dist < 140) && ( !doesLinkExist(links, this, objects[n]) )) {
+      links.push( new MyLink(this, objects[n], 
+           (this.size + objects[n].size)*0.5 )); 
+           //dist*0.9));
       created++;
     }
   }
@@ -35,7 +37,7 @@ MyCircle.prototype.makeLinks = function(objects, links) {
 
 MyCircle.prototype.redrawGraphic = function (radius, colour){
   this.graphic.clear();
-  this.graphic.beginFill(colour, 0.8 /*alpha*/);
+  this.graphic.beginFill(colour, this.alpha);
   this.graphic.drawCircle(0, 0, radius);
   this.graphic.endFill();
 };
@@ -78,7 +80,7 @@ MyLink = function(obj1, obj2, length) {
   this.obj2 = obj2;
   this.calcLength();
   //this.length = this.curLength + game.rnd.between(-5, +5);
-  this.length=80;
+  this.length = (length ? length : 80);
   this.momentum = 0;
   this.pullVec1 = new Phaser.Point(0,0);
   this.pullVec2 = new Phaser.Point(0,0);
@@ -177,7 +179,7 @@ var playState = {
     /*****************************************************************************/
   create: function() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    game.physics.arcade.gravity.y = 10;
+    //game.physics.arcade.gravity.y = 10;
 
     game.stage.backgroundColor = '#C0C0C0'; //#2d2d2d';
     this.circles=[];
@@ -185,31 +187,32 @@ var playState = {
 
     /* Outer Circles */
     for (var n=22, a=1; n<=30; n++,a++) {
-      var p = newVector( game.rnd.between(250, 270), 360*(11/a) );
+      var p = newVector( game.rnd.between(210, 240), 360*(11/a) );
       this.circles[n] = new MyCircle(game, 400+p.x,300+p.y,
-                        game.rnd.between(30,100), 0xc1c82d/*yellow*/);
+                        game.rnd.between(30,100)/*size*/, 0xc1c82d/*yellow*/);
       //this.links.push(new MyLink());
     }
 
     /* 2nd layer Circles */
     for (var n=9, a=1; n<=21; n++,a++) {
-      var p = newVector( game.rnd.between(190, 220), 360*(11/a) );
+      var p = newVector( game.rnd.between(160, 190), 360*(11/a) );
       this.circles[n] = new MyCircle(game, 400+p.x,300+p.y,
-                        game.rnd.between(30,100), 0x44a548/*green*/);
+                        game.rnd.between(30,120)/*size*/, 0x44a548/*green*/);
       //this.links.push(new MyLink());
     }
 
     /* Inner Circles */
     for (var n=1, a=1; n<=8; n++, a++) {
-      var p = newVector( game.rnd.between(120, 160), 360*(9/a) );
+      var p = newVector( game.rnd.between(90, 130), 360*(9/a) );
       this.circles[n] = new MyCircle(game, 400+p.x, 300+p.y,
-                        game.rnd.between(30,180), 0x386f48/*dark green*/);
+                        game.rnd.between(50,130)/*size*/, 0x386f48/*dark green*/);
       //this.links.push(new MyLink());
     }
 
     /* Grey Middle Circle */
-    this.circles[0] = new MyCircle(game, 400,300, 150, 0x36333a/*dark grey*/);
+    this.circles[0] = new MyCircle(game, 400,300, 150, 0x46434a/*dark grey*/, 0.99/*alpha*/);
 
+    /* Now the circles are in place, create the elastic links */
     for (n=0; n<this.circles.length; n++) {
       this.circles[n].makeLinks(this.circles, this.links);
     }
@@ -232,7 +235,7 @@ var playState = {
     for (n=0; n<this.links.length; n++) {
       this.links[n].update();
     }
-
+    /* Fix the middle balloon in place */
     this.circles[0].x=400;
     this.circles[0].y=300;
 
