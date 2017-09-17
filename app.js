@@ -10,7 +10,7 @@ MyCircle = function(game, x,y, size, colour, alpha) {
   this.size=size;
   this.lastSize=size;
   this.colour = colour; //0xff0000/*red*/ ;
-  this.alpha = (alpha ? alpha : 0.85);
+  this.alpha = (alpha ? alpha : 0.89);
   this.graphic = game.add.graphics(0,0);
   this.redrawGraphic( this.size, this.colour);
 
@@ -28,7 +28,7 @@ MyCircle.prototype.makeLinks = function(objects, links) {
     var dist = p.distance( objects[n].body );
     if ((dist < 140) && ( !doesLinkExist(links, this, objects[n]) )) {
       links.push( new MyLink(this, objects[n], 
-           (this.size + objects[n].size)*0.5 )); 
+           (this.size + objects[n].size)*0.47 )); 
            //dist*0.9));
       created++;
     }
@@ -186,15 +186,15 @@ var playState = {
     this.links=[];
 
     /* Outer Circles */
-    for (var n=22, a=1; n<=30; n++,a++) {
-      var p = newVector( game.rnd.between(210, 240), 360/9*a );
+    for (var n=21, a=1; n<=30; n++,a++) {
+      var p = newVector( game.rnd.between(230, 260), 360/10*a );
       this.circles[n] = new MyCircle(game, 400+p.x,300+p.y,
                         game.rnd.between(20,90)/*size*/,0x00a7a7); // 0xc1c82d/*yellow*/);
       //this.links.push(new MyLink());
     }
 
     /* 2nd layer Circles */
-    for (var n=9, a=1; n<=21; n++,a++) {
+    for (var n=8, a=1; n<=20; n++,a++) {
       var p = newVector( game.rnd.between(160, 190), 360/13*a );
       this.circles[n] = new MyCircle(game, 400+p.x,300+p.y,
                         game.rnd.between(30,120)/*size*/,0x0462ac); // 0x44a548/*green*/);
@@ -202,15 +202,15 @@ var playState = {
     }
 
     /* Inner Circles */
-    for (var n=1, a=1; n<=8; n++, a++) {
-      var p = newVector( game.rnd.between(90, 130), 360/8*a );
+    for (var n=1, a=1; n<=7; n++, a++) {
+      var p = newVector( game.rnd.between(90, 130), 360/7*a );
       this.circles[n] = new MyCircle(game, 400+p.x, 300+p.y,
-                        game.rnd.between(50,130)/*size*/, 0x471c72); //0x386f48/*dark green*/);
+                        game.rnd.between(50,130)/*size*/, 0x203e95); //0x386f48/*dark green*/);
       //this.links.push(new MyLink());
     }
 
     /* Grey Middle Circle */
-    this.circles[0] = new MyCircle(game, 400,300, 150, 0x46434a/*dark grey*/, 0.99/*alpha*/);
+    this.circles[0] = new MyCircle(game, 400,300, 150, 0x36334a/*dark grey*/, 0.99/*alpha*/);
 
     /* Now the circles are in place, create the elastic links */
     for (n=0; n<this.circles.length; n++) {
