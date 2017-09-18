@@ -26,9 +26,9 @@ MyCircle.prototype.makeLinks = function(objects, links) {
   var created=0;
   for (var n=0; n<objects.length && created<4; n++) {
     var dist = p.distance( objects[n].body );
-    if ((dist < 140) && ( !doesLinkExist(links, this, objects[n]) )) {
+    if ((dist < 65 /*140*/) && ( !doesLinkExist(links, this, objects[n]) )) {
       links.push( new MyLink(this, objects[n], 
-           (this.size + objects[n].size)*0.47 )); 
+           (this.size + objects[n].size)*0.46 )); 
            //dist*0.9));
       created++;
     }
@@ -136,43 +136,18 @@ work out pull momentum (acceleration)
 calc direction vectors for each end
   add the momentum to these
 Add these vectors to Objects velocity vectors
-
 */
-/******************************************************** */
-var data =[
-  {x:200, y:200, r:150, c:0x36333a}, /*dark grey*/
-  {x:250, y:110, r:50, c:0x386f48},  /*dark green*/
-  {x:298, y:180, r:100, c:0x386f48},
-  {x:230, y:270, r:200, c:0x386f48},
-  {x:150, y:280, r:80, c:0x386f48},
-  {x:110, y:240, r:75, c:0x386f48},
-  {x:90, y:150, r:200, c:0x386f48},
-  {x:150, y:100, r:50, c:0x386f48},
-  {x:200, y:200, r:170, c:0x386f48},
-  {x:200, y:200, r:50, c:0x386f48},
-  {x:250, y:80, r:70, c:0x44a548}, /*green*/  
-  {x:296, y:80, r:70, c:0x44a548},
 
-  {x:250, y:110, r:50, c:0xc1c82d}, /*yellow*/
-  {x:180, y:100, r:50, c:0x386f48}, /*dark green*/
-];
-var linkData =[
-  {o1:1, o2:2, d:50},
-  {o1:1, o2:2, d:50},
-  {o1:1, o2:2, d:50}
-];
 /**********************************************************/
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'Balloons');
+/**********************************************************/
+var game = new Phaser.Game(800, 400, Phaser.CANVAS, 'Balloons');
 var myGame;
 
 var playState = {
   preload: function() {
     myGame = this;
-    /* if the full screen button is pressed, use this scale mode: */
-    //game.scale.fullScreenScaleMode = Phaser.ScaleManager.RESIZE;
     /* use the whole window up: (turn off for desktop browser) */
-    //game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
-    //game.time.advancedTiming = true;
+    game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
     game.load.image("fake", "img/fake.png");
   },
     /**********  Create Function  ************************************************/
@@ -184,44 +159,54 @@ var playState = {
     game.stage.backgroundColor = '#C0C0C0'; //#2d2d2d';
     this.circles=[];
     this.links=[];
+    mid = new Phaser.Point(game.width/2, 220);
 
+    /* Outer Circles Two */
+    for (var a=1; a<360; a+=30) {
+      if ((a>=45 && a<=135) || (a>=225 && a<=315)) {
+        var p = newVector( game.rnd.between(180, 181), a );
+        this.circles.push( new MyCircle(game, mid.x+p.x, mid.y+p.y,
+                          game.rnd.between(25,60)/*size*/,0x00a7a7) ); 
+      }
+    }
     /* Outer Circles */
-    for (var n=21, a=1; n<=30; n++,a++) {
-      var p = newVector( game.rnd.between(230, 260), 360/10*a );
-      this.circles[n] = new MyCircle(game, 400+p.x,300+p.y,
-                        game.rnd.between(20,90)/*size*/,0x00a7a7); // 0xc1c82d/*yellow*/);
-      //this.links.push(new MyLink());
+    for (var a=1; a<360; a+=30) {
+      if ((a>=22 && a<=157) || (a>=202 && a<=337)) {
+        var p = newVector( game.rnd.between(160, 161), a );
+        this.circles.push( new MyCircle(game, mid.x+p.x, mid.y+p.y,
+                          game.rnd.between(30,90)/*size*/,0x00a7a7) ); 
+      }
     }
 
     /* 2nd layer Circles */
-    for (var n=8, a=1; n<=20; n++,a++) {
-      var p = newVector( game.rnd.between(160, 190), 360/13*a );
-      this.circles[n] = new MyCircle(game, 400+p.x,300+p.y,
-                        game.rnd.between(30,120)/*size*/,0x0462ac); // 0x44a548/*green*/);
-      //this.links.push(new MyLink());
+    for (var a=1; a<360; a+=28) {
+        var p = newVector( game.rnd.between(110, 111), a );
+        this.circles.push( new MyCircle(game, mid.x+p.x, mid.y+p.y,
+                          game.rnd.between(40,100)/*size*/,0x0462ac) );
     }
 
     /* Inner Circles */
-    for (var n=1, a=1; n<=7; n++, a++) {
-      var p = newVector( game.rnd.between(90, 130), 360/7*a );
-      this.circles[n] = new MyCircle(game, 400+p.x, 300+p.y,
-                        game.rnd.between(50,130)/*size*/, 0x203e95); //0x386f48/*dark green*/);
-      //this.links.push(new MyLink());
+    for (var n=1, a=1; n<=7; n++, a++) {     
+      var p = newVector( game.rnd.between(70, 71), 360/7*a );
+      this.circles.push( new MyCircle(game, mid.x+p.x, mid.y+p.y,
+                        game.rnd.between(50,110)/*size*/, 0x203e95) );
     }
 
     /* Grey Middle Circle */
-    this.circles[0] = new MyCircle(game, 400,300, 150, 0x36334a/*dark grey*/, 0.99/*alpha*/);
+    this.circles.push ( new MyCircle(game, mid.x,mid.y, 140, 0x36334a/*dark grey*/, 0.99/*alpha*/) );
+    
+    var style = { font: "12px Arial", fill: "#eee", boundsAlignH: "center", boundsAlignV: "middle" };
+    this.text = game.add.text(0, 0, "Andy Ballard", style);
+    //text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+    this.text.setTextBounds(-150, -20, 300, 50);
+    this.circles[0].addChild( this.text ); /* attach it to our main Circle */
 
     /* Now the circles are in place, create the elastic links */
     for (n=0; n<this.circles.length; n++) {
       this.circles[n].makeLinks(this.circles, this.links);
     }
 
-    /* now weve set all their positions up, put them all in the centre, so the explode out */
-//    for (n=0; n<this.circles.length; n++) {
-//      this.circles[n].x=400+game.rnd.realInRange(-8,8);
-//      this.circles[n].y=300+game.rnd.realInRange(-8,8);
-//    }
+    console.log("circles: "+this.circles.length);
     console.log("links: "+this.links.length);
 
   },
@@ -236,8 +221,8 @@ var playState = {
       this.links[n].update();
     }
     /* Fix the middle balloon in place */
-    this.circles[0].x=400;
-    this.circles[0].y=300;
+    this.circles[0].x=mid.x;
+    this.circles[0].y=mid.y;
 
     if (game.rnd.between(0, 500) == 1){
       var which = game.rnd.between(0, this.circles.length-1);
