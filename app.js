@@ -28,7 +28,7 @@ MyCircle.prototype.makeLinks = function(objects, links) {
     var dist = p.distance( objects[n].body );
     if ((dist < 65 /*140*/) && ( !doesLinkExist(links, this, objects[n]) )) {
       links.push( new MyLink(this, objects[n], 
-           (this.size + objects[n].size)*0.46 )); 
+           (this.size + objects[n].size)*0.45 )); 
            //dist*0.9));
       created++;
     }
@@ -179,7 +179,7 @@ var playState = {
     }
 
     /* 2nd layer Circles */
-    for (var a=1; a<360; a+=28) {
+    for (var a=1; a<360; a+=38) {
         var p = newVector( game.rnd.between(110, 111), a );
         this.circles.push( new MyCircle(game, mid.x+p.x, mid.y+p.y,
                           game.rnd.between(40,100)/*size*/,0x0462ac) );
@@ -193,13 +193,14 @@ var playState = {
     }
 
     /* Grey Middle Circle */
-    this.circles.push ( new MyCircle(game, mid.x,mid.y, 140, 0x36334a/*dark grey*/, 0.99/*alpha*/) );
+    var midCirc =  new MyCircle(game, mid.x,mid.y, 140, 0x36334a/*dark grey*/, 0.99/*alpha*/);
+    this.circles.push ( midCirc );
     
-    var style = { font: "12px Arial", fill: "#eee", boundsAlignH: "center", boundsAlignV: "middle" };
+    var style = { font: "12px Arial", fill: "#aaa", boundsAlignH: "center", boundsAlignV: "middle" };
     this.text = game.add.text(0, 0, "Andy Ballard", style);
     //text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     this.text.setTextBounds(-150, -20, 300, 50);
-    this.circles[0].addChild( this.text ); /* attach it to our main Circle */
+    midCirc.addChild( this.text ); /* attach it to our main Circle */
 
     /* Now the circles are in place, create the elastic links */
     for (n=0; n<this.circles.length; n++) {
