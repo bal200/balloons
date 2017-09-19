@@ -104,7 +104,7 @@ MyLink.prototype.calcLength = function() {
 MyLink.prototype.calcPull = function() {
   var dif = this.length - this.curLength;
   this.momentum = squared(dif) /3;
-  if (this.momentum>100) this.momentum=100;
+  if (this.momentum>100) this.momentum=100; /* Stop the blighters moving too quick */
   if (this.momentum<-100) this.momentum=-100;
 };
 
@@ -140,14 +140,14 @@ Add these vectors to Objects velocity vectors
 
 /**********************************************************/
 /**********************************************************/
-var game = new Phaser.Game(800, 400, Phaser.CANVAS, 'Balloons');
+var game = new Phaser.Game(600, 400, Phaser.CANVAS, 'balloons');
 var myGame;
 
 var playState = {
   preload: function() {
     myGame = this;
     /* use the whole window up: (turn off for desktop browser) */
-    game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+    //game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
     game.load.image("fake", "img/fake.png");
   },
     /**********  Create Function  ************************************************/
@@ -159,7 +159,7 @@ var playState = {
     game.stage.backgroundColor = '#C0C0C0'; //#2d2d2d';
     this.circles=[];
     this.links=[];
-    mid = new Phaser.Point(game.width/2, 220);
+    mid = new Phaser.Point(game.width/2, game.height/2);
 
     /* Outer Circles Two */
     for (var a=1; a<360; a+=30) {
