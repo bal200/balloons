@@ -26,9 +26,9 @@ MyCircle.prototype.makeLinks = function(objects, links) {
   var created=0;
   for (var n=0; n<objects.length && created<4; n++) {
     var dist = p.distance( objects[n].body );
-    if ((dist < 65 /*140*/) && ( !doesLinkExist(links, this, objects[n]) )) {
+    if ((dist < 69 /*140*/) && ( !doesLinkExist(links, this, objects[n]) )) {
       links.push( new MyLink(this, objects[n], 
-           (this.size + objects[n].size)*0.45 )); 
+           (this.size + objects[n].size)*0.44 )); 
            //dist*0.9));
       created++;
     }
