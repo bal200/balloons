@@ -74,7 +74,7 @@ MyCircle.prototype.pop = function( links ) {
 
 }
 
-/********************************************************/
+/*****************************************************************/
 MyLink = function(obj1, obj2, length) {
   this.obj1 = obj1;
   this.obj2 = obj2;
@@ -140,7 +140,7 @@ Add these vectors to Objects velocity vectors
 
 /**********************************************************/
 /**********************************************************/
-var game = new Phaser.Game(600, 400, Phaser.CANVAS, 'balloons');
+var game = new Phaser.Game(600, 500, Phaser.CANVAS, 'balloons',null,true);
 var myGame;
 
 var playState = {
@@ -156,10 +156,10 @@ var playState = {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     //game.physics.arcade.gravity.y = 10;
 
-    game.stage.backgroundColor = '#C0C0C0'; //#2d2d2d';
+    //game.stage.backgroundColor = '#D0D0D0'; //#2d2d2d';
     this.circles=[];
     this.links=[];
-    mid = new Phaser.Point(game.width/2, game.height/2);
+    mid = new Phaser.Point(game.width/2, 200/*game.height/2*/);
 
     /* Outer Circles Two */
     for (var a=1; a<360; a+=30) {

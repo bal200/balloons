@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>Balloons</title>
+	<title>Portfolio</title>
 	<!-- use local Phaser Lib   -->
 	<!-- <script src="phaser2.6.1.min.js"></script> -->
 	<!-- use CDN Phaser Lib -->
@@ -13,11 +13,16 @@
 	<script src="app.js"></script>
 	<style>
 		body {
-			margin:0px; background-color:#C0C0C0;
-			
+			margin:0px; background-color:#E1E1E1;
 		}
 		#balloons {
-			width:600px; height:400px;	margin:auto;
+			position: absolute;
+			width:600px; height:400px;
+			left: 50%;
+			margin-left:-300px;
+		}
+		#spacing {
+			height: 340px;
 		}
 		#main {
 			margin: 0px 20px 20px 20px; 
@@ -27,25 +32,38 @@
 		H1 {
       margin-top:0px;
 		}
+		.whitebox {
+			border-color: #D2D2D2;
+			border-width: 1px 1px 2px 1px;
+			border-style: solid;
+			border-radius: 5px;
+			background-color:#F5F5F5;
+			padding: 5px;
+			margin: 18px 0px; 
+		}
 	</style>
 </head>
 <body>
-	
 	<div id="balloons"></div>
+	<div id="spacing"></div>
+	
 	<div id="main">
-
 		<H1>HTML5 Games Developer</H1>
 		<H2>Games, Apps and Web Portfolio</H2>
 		<p>&nbsp;</p>
-		
-		<p><a href="http://www.lunchalert.me/tanks/">Draw a House over a Tank</a> game</p>
-		
-		<p><a href="http://www.lunchalert.me/">LunchAlert Website</a></p>
-		<p><a href="https://play.google.com/store/apps/details?id=me.lunchalert.lunchalert">
-			LunchAlert Customer App on Google Play Store</a></p>
-		
-		<p>Planet Hopper game</p>
-		
+		<div class="whitebox">
+		  <p><a href="http://www.lunchalert.me/tanks/">Draw a House over a Tank</a> game</p>
+		</div>
+
+		<div class="whitebox">
+		  <p><a href="http://www.lunchalert.me/">LunchAlert Website</a></p>
+		  <p><a href="https://play.google.com/store/apps/details?id=me.lunchalert.lunchalert">
+			  LunchAlert Customer App on Google Play Store</a></p>
+		</div>
+		<div class="whitebox">
+		  <p>Planet Hopper game</p>
+		</div>
+
 		<p><a href="http://balsrov.wordpress.com">An Underwater ROV Project</p>
 		
   </div>
