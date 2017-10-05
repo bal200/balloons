@@ -6,14 +6,16 @@
 	<!-- use local Phaser Lib   -->
 	<!-- <script src="phaser2.6.1.min.js"></script> -->
 	<!-- use CDN Phaser Lib -->
-	<script src="//cdn.jsdelivr.net/phaser/2.6.1/phaser.min.js"></script>
+	<script src="//cdn.jsdelivr.net/phaser/2.6.2/phaser.min.js"></script>
 <!--  <script src="phaser\v2\build\phaser.js"></script>
 	<script src="phaser\v3\dist\phaser.js"></script>
 	-->
 	<script src="app.js"></script>
+	<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+
 	<style>
 		body {
-			margin:0px; background-color:#E1E1E1;
+			margin:0px; background-color:#F5F5F5;
 		}
 		#balloons {
 			position: absolute;
@@ -24,47 +26,128 @@
 		#spacing {
 			height: 340px;
 		}
-		#main {
-			margin: 0px 20px 20px 20px; 
-			font-family:"Verdana";
+		.navy-blue {
 			color: #303060;
-		}
-		H1 {
-      margin-top:0px;
-		}
-		.whitebox {
-			border-color: #D2D2D2;
-			border-width: 1px 1px 2px 1px;
-			border-style: solid;
-			border-radius: 5px;
-			background-color:#F5F5F5;
-			padding: 5px;
-			margin: 18px 0px; 
 		}
 	</style>
 </head>
 <body>
 	<div id="balloons"></div>
 	<div id="spacing"></div>
+
+	<div class="ui vertical stripe segment">
+    <div class="ui text container">
+			<H1 class="ui header" style="color:#303060;">HTML5 Games Developer</H1>
+			<H2 class="ui header" style="color:#303060;">Games, Apps and Web Portfolio</H2>
+      <p>Instead of focusing on content creation and hard work, we have learned 
+				how to master the art of doing nothing by providing massive amounts of 
+				whitespace and generic content that can seem massive, monolithic and 
+				worth your attention.</p>
+      <h4 class="ui horizontal header divider">
+      </h4>
+    </div>
+	</div>
+	<!-- #1 -->
+	<div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header" style="color:#303060;">Draw a House on a Tank game</h3>
+          <p>We can give your company superpowers to do things that they never 
+						thought possible. Let us delight your customers and empower your 
+						needs...through pure data analytics.</p>
+          <h4 class="ui header" style="color:#303060;">We Make Bananas That Can Dance</h4>
+          <p>Yes that's right, you thought it was the stuff of dreams, but even 
+						bananas can be bioengineered.</p>
+					<a class="ui tiny button" href="http://www.lunchalert.me/tanks">Live Demo</a>
+				</div>
+        <div class="six wide right floated column">
+					<img src="img/tanks_screenshot1.jpg" class="ui large bordered rounded image">
+					<img src="img/tanks_screenshot2.jpg" class="ui large bordered rounded image">
+				</div>
+      </div>
+    </div>
+	</div>
 	
-	<div id="main">
-		<H1>HTML5 Games Developer</H1>
-		<H2>Games, Apps and Web Portfolio</H2>
-		<p>&nbsp;</p>
-		<div class="whitebox">
-		  <p><a href="http://www.lunchalert.me/tanks/">Draw a House over a Tank</a> game</p>
+	<!-- #2 -->
+	<div class="ui vertical stripe segment">
+		<div class="ui middle aligned stackable grid container">
+			<div class="row">
+				<div class="six wide left floated column">
+					<img src="img/lunchalert_screenshot1.jpg" class="ui large bordered rounded image">
+					<img src="img/lunchalert_screenshot3.jpg" class="ui large bordered rounded image">
+				</div>
+				<div class="eight wide column">
+					<h3 class="ui header" style="color:#303060;">LunchAlert App</h3>
+					<p>We can give your company superpowers to do things that they never
+							thought possible. Let us delight your customers and empower your
+							needs...through pure data analytics.</p>
+					<a class="ui tiny button" href="http://www.lunchalert.me/">
+						LunchAlert Website
+					</a>
+					<h4 class="ui header" style="color:#303060;">We Make Bananas That Can Dance</h4>
+					<p>Yes that's right, you thought it was the stuff of dreams, but even
+							bananas can be bioengineered.</p>
+					<a class="ui tiny button" href="https://play.google.com/store/apps/details?id=me.lunchalert.lunchalert">
+						LunchAlert Customer App on Google Play Store
+					</a>
+				</div>
+			</div>
 		</div>
+	</div>
 
-		<div class="whitebox">
-		  <p><a href="http://www.lunchalert.me/">LunchAlert Website</a></p>
-		  <p><a href="https://play.google.com/store/apps/details?id=me.lunchalert.lunchalert">
-			  LunchAlert Customer App on Google Play Store</a></p>
+	<!-- #3 -->
+	<div class="ui vertical stripe segment">
+		<div class="ui middle aligned stackable grid container">
+			<div class="row">
+				<div class="eight wide column">
+					<h3 class="ui header" style="color:#303060;">Planet Hopper</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+						exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
+						irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+						pariatur. </p>
+					<h4 class="ui header" style="color:#303060;">We Make Bananas That Can Dance</h4>
+					<p>Yes that's right, you thought it was the stuff of dreams, but even 
+						bananas can be bioengineered.</p>
+				</div>
+				<div class="six wide right floated column">
+						<img src="img/planethopper_screenshot1.jpg" class="ui large bordered rounded image">
+						<img src="img/planethopper_screenshot2.jpg" class="ui large bordered rounded image">
+					</div>
+			</div>
 		</div>
-		<div class="whitebox">
-		  <p>Planet Hopper game</p>
-		</div>
+	</div>
 
-		<p><a href="http://balsrov.wordpress.com">An Underwater ROV Project</p>
+	<!-- #4 -->
+	<div class="ui vertical stripe segment">
+		<div class="ui middle aligned stackable grid container">
+			<div class="row">
+				<div class="six wide left floated column">
+					<img src="img/asteroids_screenshot1.jpg" class="ui large bordered rounded image">
+					<img src="img/asteroids_screenshot2.jpg" class="ui large bordered rounded image">
+				</div>
+				<div class="eight wide column">
+					<h3 class="ui header" style="color:#303060;">Asteroids</h3>
+					<p>I was the developer for an Asteroids based game where your rocket shoots 
+						at flying saucers.  This was made for a marketing company client.</p>
+
+					<h4 class="ui header" style="color:#303060;">Lorem Ipsum</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+						exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+		
+	<div>
+	
+		<div class="whitebox">
+		  <p><a href="http://balsrov.wordpress.com">Underwater ROV Hardware Project</p>
+		</div>
 		
   </div>
 </body>
