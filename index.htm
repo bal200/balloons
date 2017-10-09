@@ -2,15 +2,14 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">	
 	<title>Portfolio</title>
 	<!-- use local Phaser Lib   -->
 	<!-- <script src="phaser2.6.1.min.js"></script> -->
 	<!-- use CDN Phaser Lib -->
 	<script src="//cdn.jsdelivr.net/phaser/2.6.2/phaser.min.js"></script>
-<!--  <script src="phaser\v2\build\phaser.js"></script>
-	<script src="phaser\v3\dist\phaser.js"></script>
-	-->
 	<script src="app.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
 
 	<style>
@@ -32,34 +31,52 @@
 	</style>
 </head>
 <body>
-	<div id="balloons"></div>
-	<div id="spacing"></div>
 
+<div id="balloons"></div>
+<div id="spacing"></div>
+
+<div class="ui vertical segment">
 	<div class="ui vertical stripe segment">
-    <div class="ui text container">
+    <div class="ui stackable grid text container">
 			<H1 class="ui header" style="color:#303060;">HTML5 Games Developer</H1>
 			<H2 class="ui header" style="color:#303060;">Games, Apps and Web Portfolio</H2>
-      <p>Instead of focusing on content creation and hard work, we have learned 
-				how to master the art of doing nothing by providing massive amounts of 
-				whitespace and generic content that can seem massive, monolithic and 
-				worth your attention.</p>
+      <p>Hi, I'm Andy and I am a games programmer who makes 2D computer games that work 
+					on the web.  This means games that work on any desktop browser or mobile phone browser,
+					or games for the App stores on iPhone and Android.</p>
+				
+			<p>I use the flexible Phaser.js framework to create games, but have also extended
+				this framework to do even more than is posible with it alone.</p>
+
+			<p>I have put together a showcase of some of the demo games, and partial games I 
+				have worked on, which give an idea of what I can do.  This is the tip of the
+				iceberg, as web games are still in their infancy, and I explore new ideas and
+				projects all the time to create new interactive visuals</p>
+			<p>I have also worked on Android apps using the Ionic framework and
+				Angular.js</p>
+
       <h4 class="ui horizontal header divider">
       </h4>
     </div>
-	</div>
+  </div>
 	<!-- #1 -->
 	<div class="ui vertical stripe segment">
-    <div class="ui middle aligned stackable grid container">
+    <div class="ui middle aligned stackable grid text container">
       <div class="row">
-        <div class="eight wide column">
+        <div class="ten wide column">
           <h3 class="ui header" style="color:#303060;">Draw a House on a Tank game</h3>
-          <p>We can give your company superpowers to do things that they never 
-						thought possible. Let us delight your customers and empower your 
-						needs...through pure data analytics.</p>
-          <h4 class="ui header" style="color:#303060;">We Make Bananas That Can Dance</h4>
-          <p>Yes that's right, you thought it was the stuff of dreams, but even 
-						bananas can be bioengineered.</p>
+          <p>I am making my own take on the classic turn based Tanks game.  A 2D game of skill
+						and tactics where you aim your tanks cannon and judge the shots trajectory to hit your enemy.  
+						I beefed up the idea and removed the turns, added an aiming guide, and let players "draw"
+						they're own walls and defences to block oponents missiles.</p>
+					<p>Potential for future internet multiplay and extra weapons</p>
 					<a class="ui tiny button" href="http://www.lunchalert.me/tanks">Live Demo</a>
+          <h4 class="ui header" style="color:#303060;">Under the hood</h4>
+          <p>Using Phaser.js, but 
+							with a custom camera routine to allow the screen to zoom out when you shoot your cannon
+							at the distant enemy.  The game has a custom destroyable bitmap landscape, and a trajectory 
+							setting joypad.  Also note the bouncing bomb on level two, which calculates the surface
+							normals on a bitmap when colliding with the landscape.</p>
+
 				</div>
         <div class="six wide right floated column">
 					<img src="img/tanks_screenshot1.jpg" class="ui large bordered rounded image">
@@ -67,27 +84,36 @@
 				</div>
       </div>
     </div>
-	</div>
+  </div>
 	
 	<!-- #2 -->
 	<div class="ui vertical stripe segment">
-		<div class="ui middle aligned stackable grid container">
+		<div class="ui middle aligned stackable grid text container">
 			<div class="row">
 				<div class="six wide left floated column">
 					<img src="img/lunchalert_screenshot1.jpg" class="ui large bordered rounded image">
 					<img src="img/lunchalert_screenshot3.jpg" class="ui large bordered rounded image">
 				</div>
-				<div class="eight wide column">
+				<div class="ten wide column">
 					<h3 class="ui header" style="color:#303060;">LunchAlert App</h3>
-					<p>We can give your company superpowers to do things that they never
-							thought possible. Let us delight your customers and empower your
-							needs...through pure data analytics.</p>
+					<p>In a team of three where I was the full stack developer, LunchAlert was made 
+						for a
+						Sandwich delivery van business.  It has since grown to be used at hundreds of 
+						business parks around the UK.  The app allows marketing promotions to be pushed out 
+						to all a companys	customers, including push notifications.</p>
+					<h4 class="ui header" style="color:#303060;">National Award Winner!</h4>
+					<p>
+							In 2017, LunchAlert won the New sandwich product of the year award in the 
+							British Sandwich Industries award show The Sammies.  This was covered in 
+							<a href="http://www.warringtonguardian.co.uk/news/15394843.App_designed_to_feed_hungry_office_workers_tastes_success_at_national_sandwich_awards/">
+							this Warrington Guardian article</a>.
+					</p>
 					<a class="ui tiny button" href="http://www.lunchalert.me/">
 						LunchAlert Website
 					</a>
-					<h4 class="ui header" style="color:#303060;">We Make Bananas That Can Dance</h4>
-					<p>Yes that's right, you thought it was the stuff of dreams, but even
-							bananas can be bioengineered.</p>
+					<h4 class="ui header" style="color:#303060;">Technology</h4>
+					<p>The App used the Ionic Framework, Angular.js and Cordova, and is on the App Store 
+						and Google Play stores.</p>
 					<a class="ui tiny button" href="https://play.google.com/store/apps/details?id=me.lunchalert.lunchalert">
 						LunchAlert Customer App on Google Play Store
 					</a>
@@ -98,18 +124,19 @@
 
 	<!-- #3 -->
 	<div class="ui vertical stripe segment">
-		<div class="ui middle aligned stackable grid container">
+		<div class="ui middle aligned stackable grid text container">
 			<div class="row">
-				<div class="eight wide column">
+				<div class="ten wide column">
 					<h3 class="ui header" style="color:#303060;">Planet Hopper</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-						exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-						irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-						pariatur. </p>
-					<h4 class="ui header" style="color:#303060;">We Make Bananas That Can Dance</h4>
-					<p>Yes that's right, you thought it was the stuff of dreams, but even 
-						bananas can be bioengineered.</p>
+					<p>A small game demo written using the HTML5 canvas element.  I rocket is controlled 
+						with the cursor keys and can explore a wrap around scrolling planet.  It you venture
+						high enough, the sky changes colour as you pass through different atmosphere layers,
+						and eventually enter space.
+					</p>
+					<p>I dont currently have a demo online, but may one day convert it to Phaser and continue
+						this game, expanding it to have missions to collect items on different planets, asteroids,
+            underground caves and alien forests.
+					</p>
 				</div>
 				<div class="six wide right floated column">
 						<img src="img/planethopper_screenshot1.jpg" class="ui large bordered rounded image">
@@ -121,34 +148,39 @@
 
 	<!-- #4 -->
 	<div class="ui vertical stripe segment">
-		<div class="ui middle aligned stackable grid container">
+		<div class="ui middle aligned stackable grid text container">
 			<div class="row">
 				<div class="six wide left floated column">
 					<img src="img/asteroids_screenshot1.jpg" class="ui large bordered rounded image">
 					<img src="img/asteroids_screenshot2.jpg" class="ui large bordered rounded image">
 				</div>
-				<div class="eight wide column">
+				<div class="ten wide column">
 					<h3 class="ui header" style="color:#303060;">Asteroids</h3>
-					<p>I was the developer for an Asteroids based game where your rocket shoots 
-						at flying saucers.  This was made for a marketing company client.</p>
+					<p>For a marketing company client I developed an Asteroids based game. 
+						ou are a rocket in space holding off a fleet of	attacking flying saucers.
+						Your rocket is controlled with the cursor keys or an onscreen joystick for mobile.</p>
 
-					<h4 class="ui header" style="color:#303060;">Lorem Ipsum</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-						exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<h4 class="ui header" style="color:#303060;">More than just graphics</h4>
+					<p>Making games playable is an artform in itself, and I put thought into the way
+						the rocket is controlled and moves to get a fun "feel".</p>
+					<p>An air friction routine
+						was added to give the rocket punchy acceleration at low speeds, but limit maximum speed
+            so it doesnt fly too fast, making collision courses with off screen obstacles unavoidable.
+					</p>
 
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
-		
 	<div>
-	
 		<div class="whitebox">
 		  <p><a href="http://balsrov.wordpress.com">Underwater ROV Hardware Project</p>
 		</div>
-		
-  </div>
+	</div>
+	
+
+
 </body>
 </html>

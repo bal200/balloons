@@ -156,6 +156,9 @@ var playState = {
     game.physics.startSystem(Phaser.Physics.ARCADE);
     //game.physics.arcade.gravity.y = 10;
 
+    /* Stop the annoying scroll jump on mobile */
+    game.scale.compatibility.scrollTo = false;
+
     //game.stage.backgroundColor = '#D0D0D0'; //#2d2d2d';
     this.circles=[];
     this.links=[];
