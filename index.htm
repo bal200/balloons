@@ -24,10 +24,29 @@
 			margin-left:-300px;
 		}
 		#spacing {
-			height: 340px;
+			height: 300px;
 		}
 		.navy-blue {
 			color: #303060;
+		}
+		.ui.button {
+      background: cadetblue;
+			color: white;
+			transition: background 0.15s linear;
+		}
+		.ui.button:hover {
+      background: #61b1b4;
+			color: white;
+		}
+		.ui.header {
+			color: #52898b;
+			/* color: cadetblue; */
+		}
+		.ui.vertical.segment {
+			border-bottom: 2px solid rgba(34,36,38,.15)
+		}
+		.ui.segment {
+			padding: 3em 1em 2em 1em;
 		}
 	</style>
 </head>
@@ -39,17 +58,16 @@
 <div class="ui vertical segment">
 	<div class="ui vertical stripe segment">
     <div class="ui stackable grid text container">
-			<H1 class="ui header" style="color:#303060;">Web, Apps and Games Portfolio</H1>
+			<H1 class="ui header" style="color:#303060; text-shadow: white 1px 1px 1px;">Web, Apps and Games Portfolio</H1>
 			<H2 class="ui header" style="color:#303060;"></H2>
       <p>Hi, I'm Andy Ballard and I am a web developer and 2D games programmer.</p>
 				
-			<p>I have put together a showcase of some of the websites and Apps I have worked on,
+			<p>I have put together a showcase of some of the websites and apps I have worked on,
 				for commercial clients and my own personal projects.  Also here are some web based 
 				game projects I have built in my spare time.</p>
 			
 			<p>I currently use Angular 5 in my day to day work and am working as a Front End Web Developer.</p>
 
-			<p>&nbsp;</p>
 		</div>
 		<p>&nbsp;</p>
 	</div>
@@ -64,9 +82,12 @@
 					</a>
 				</div>
 				<div class="eight wide column">
-					<h3 class="ui header" style="color:#303060;">Website for the Matchstick Men Group</h3>
-					<p>I was the developer to build this business website using Wordpress.</p>
-					<p></p>
+					<h2 class="ui header">Website for the Matchstick Men Group</h2>
+					<p>One of my first assignments at this role was working with a designer to develop a formal
+						website describing the vision of this group of companies.</p>
+					<p>I first built it by hand in html/css,
+						then weaved it into a WordPress theme so content editing could be handed over to the business.
+						</p>
 				</div>
 			</div>
 			<p>&nbsp;</p>
@@ -77,9 +98,12 @@
 		<div class="ui middle aligned stackable grid text container">
 			<div class="row">
 				<div class="eight wide column">
-					<h3 class="ui header" style="color:#303060;">Russell Hobbs Major domestic Appliances - Ecommerce site</h3>
-					<p>I built the front end for an Ecommerce shop for a licencee of the russell Hobbs brand.</p>
-					<p>This was built using the Magento 2 framework.</p>
+					<h2 class="ui header">Russell Hobbs Major Domestic Appliances shop</h2>
+					<p>My first Ecommerce and Magento experience, I built the front-end, and some back-end of this site 
+						for a licencee of the Russell Hobbs brand.</p>
+					<p>This was built as a custom Magento 2 theme, with additonal custom php modules too.  It includes
+						in house modules for a contact form and Product Registration jQuery form.
+					</p>
 				</div>
 				<div class="eight wide right floated column">
 					<a href="https://mda.russellhobbs.com/">
@@ -100,16 +124,16 @@
 					<img src="img/biplane_screenshot2.png" class="ui large bordered rounded image">
 				</div>
 				<div class="ten wide column">
-					<h3 class="ui header" style="color:#303060;">Biplanes Champion</h3>
+					<h2 class="ui header">Biplanes Champion</h2>
 					<p>A remake of the 90's single screen dog-fight game Biplane Duel.  A side view of
 						a landscape with two biplane aeroplanes that take off, perform acrobatics and duel.
 						First to 8 points wins!</p>
 					<p>I designed the controls to mimic the tight and quick feel of the original Amiga 
-						game, even down to the engine stall if you climb to steeply.</p>
+						game, even down to the engine stall if you climb too steeply.</p>
 					<a class="ui small button" href="https://bal200.itch.io/biplanes">
 						Biplanes Champion on Itch.io
 					</a>
-					<h4 class="ui header" style="color:#303060;">GitHub Game Off entry</h4>
+					<h4 class="ui header">GitHub Game Off entry</h4>
 					<p>I entered this game into the 2017 Github Game Off competition in November, where you 
 						have one month to build a game on the 'Throwback' theme.
 					</p>
@@ -127,7 +151,7 @@
 		<div class="ui middle aligned stackable grid text container">
 			<div class="row">
 				<div class="ui sixteen wide column">
-					<h3 class="ui header" style="color:#303060;">LunchAlert App</h3>
+					<h2 class="ui header">LunchAlert App</h2>
 					<a href="http://www.lunchalert.me/" class="ui medium right floated rounded image">
 						<img src="img/lunchalert_screenshot1.jpg"/>
 					</a>
@@ -138,8 +162,8 @@
 						all the delivery vans customers, including push notifications.</p>
 					<p>&nbsp;</p>
 					<div class="ui message">
-						<h3 class="ui header" style="color:#303060;">
-								<i class="trophy icon"></i>National Award Winner!</h3>
+						<h3 class="ui header">
+								<i class="trophy icon" style="color:black;"></i>National Award Winner!</h3>
 						<p>
 							In 2017, LunchAlert won the New sandwich product of the year award in the 
 							British Sandwich Industries award show The Sammies.  This was covered in 
@@ -150,7 +174,7 @@
 							Warrington Guardian Article
 						</a>
 					</div>
-					<h4 class="ui header" style="color:#303060;">Technology</h4>
+					<h4 class="ui header">Technology</h4>
 					<p>The App used the Ionic Framework, Angular.js and Cordova, and is on the App Store 
 						and Google Play store.  It receives an instant notification when the delivery 
 						van arrives, controlled by a matching app the van driver uses.  The app also shows 
@@ -167,28 +191,28 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="three wide column">
+			<div class="doubling five column row">
+				<div class="column">
 					<a href="img/lunchalert_bruc.jpg" class="ui small bordered rounded image">
 						<img src="img/lunchalert_bruc.jpg">
 					</a>
 				</div>
-				<div class="three wide column">
+				<div class="column">
 					<a href="img/lunchalert_bruc2.png" class="ui small bordered rounded image">
 						<img src="img/lunchalert_bruc2.png">
 					</a>
 				</div>
-				<div class="three wide column">
+				<div class="column">
 					<a href="img/lunchalert_cof.jpg" class="ui small bordered rounded image">
 						<img src="img/lunchalert_cof.jpg">
 					</a>
 				</div>
-				<div class="three wide column">
+				<div class="column">
 					<a href="img/lunchalert_mil.jpg" class="ui small bordered rounded image">
 						<img src="img/lunchalert_mil.jpg">
 					</a>
 				</div>
-				<div class="three wide column">
+				<div class="column">
 					<a href="img/lunchalert_ter.png" class="ui small bordered rounded image">
 						<img src="img/lunchalert_ter.png">
 					</a>
@@ -202,14 +226,14 @@
     <div class="ui middle aligned stackable grid text container">
       <div class="row">
         <div class="ten wide column">
-          <h3 class="ui header" style="color:#303060;">Draw a House on a Tank game</h3>
+          <h2 class="ui header">Draw a House on a Tank game</h2>
           <p>I am making my own take on the classic turn based Tanks game.  A 2D game of skill
 						and tactics where you aim your tanks cannon and judge the shots trajectory to hit your enemy.  
 						I beefed up the idea and removed the turns, added an aiming guide, and let players "draw"
 						they're own walls and defences to block oponents missiles.</p>
 					<p>Potential for future internet multiplay and extra weapons</p>
 					<a class="ui tiny button" href="http://www.lunchalert.me/tanks">Live Demo</a>
-          <h4 class="ui header" style="color:#303060;">Under the hood</h4>
+          <h4 class="ui header">Under the hood</h4>
           <p>Using Phaser.js, but 
 						with a custom camera routine to allow the screen to zoom out when you shoot your cannon
 						at the distant enemy.  The game has a custom destroyable bitmap landscape, and a trajectory 
@@ -235,7 +259,7 @@
 					<img src="img/asteroids_screenshot2.jpg" class="ui large bordered rounded image">
 				</div>
 				<div class="ten wide column">
-					<h3 class="ui header" style="color:#303060;">Asteroids</h3>
+					<h2 class="ui header">Asteroids</h2>
 					<p>For a marketing company client I developed an Asteroids based game. 
 						You are a rocket in space holding off a fleet of	attacking flying saucers.
 						Your rocket is controlled with the cursor keys or an onscreen joystick for mobile.</p>
@@ -243,7 +267,7 @@
 					<a class="ui tiny button" href="http://bbi.agency/games/RocketBlast">
 						Rocket Blast Demo
 					</a>
-					<h4 class="ui header" style="color:#303060;">More than just graphics</h4>
+					<h4 class="ui header">More than just graphics</h4>
 					<p>Making games feel playable is an artform in itself, so I put some thought into 
 						the way	the rocket accelerates in this game.</p>
 					<p>An air friction routine
@@ -263,10 +287,10 @@
 		<div class="ui middle aligned stackable grid text container">
 			<div class="row">
 				<div class="ten wide column">
-					<h3 class="ui header" style="color:#303060;">Planet Hopper</h3>
+					<h2 class="ui header">Planet Hopper</h2>
 					<p>A small game demo written using the HTML5 canvas element.  The rocket is controlled 
 						with the cursor keys and can explore a wrap around scrolling planet.</p>
-					<h4 class="ui header" style="color:#303060;">Space</h4>
+					<h4 class="ui header">Space</h4>
 					<p>If you venture
 						high enough, the sky changes colour as you pass through different atmosphere layers,
 						and eventually enter space.  The game then seemlessly zooms out and you orbit the 
